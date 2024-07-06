@@ -1,0 +1,341 @@
+Rutina de configuración integral de un servidor Ubuntu 24.04
+============================================================
+
+PRE-REQUISITO:
+**************
+$ sudo apt install iputils-ping
+$ sudo apt install net-tools
+$ sudo apt install bash-completion
+$ source ~/.bashrc
+
+Configuración del nombre del servidor:
+
+$ hostname
+$ sudo hostnamectl set-hostname srvmaster.so2.local
+
+Edita el archivo hosts para relacionar con su hostname FQDN:
+
+$ sudo nano /etc/hosts
+
+192.168.5.10 srvmaster.so2.local
+
+Muestra su zona horaria actual, por ejemplo Ecuador (GMT -5):
+
+$ sudo timedatectl
+$ sudo timedatectl | grep Time
+
+Establece la zona horaria deseada, por ejemplo, "America/Guayaquil":
+
+$ sudo timedatectl set-timezone "America/Guayaquil"
+
+Aplicar los cambios, reiniciando el servidor:
+
+$ sudo reboot now
+
+
+1. Asignar IP fija a la interfaz interna:
+*****************************************
+$ sudo nano /etc/netplan/50-cloud-init.yaml
+
+Configuración de interfaz LAN:
+
+network:
+  ethernets:
+    ens33:
+      dhcp4: no
+      addresses: [192.168.5.10/24]
+      routes: 
+	  - to: default
+        via: IP_INTERNET_GATEWAY
+      nameservers:
+        addresses: [192.168.5.10]
+		search: [so2.local]
+  version: 2
+  renderer: networkd
+
+Aplicar los cambios:
+
+$ sudo netplan apply
+
+Configuración de interfaz WAN:
+
+sudo nano /etc/netplan/02-netcfg.yaml
+
+Configuración del archivo:
+
+network:
+  ethernets:
+    ens37:
+      dhcp4: yes
+  version: 2
+  renderer: networkd
+  
+Aplicar los cambios:
+
+$ sudo netplan apply
+
+
+2. Instalación y configuración de LAMP:
+***************************************
+Instalar Apache:
+
+$ sudo apt update && sudo apt upgrade
+$ sudo apt install apache2
+$ sudo systemctl enable apache2
+$ sudo systemctl start apache2
+
+Instalar MariaDB:
+
+$ sudo apt install mariadb-server
+$ sudo systemctl enable mariadb
+$ sudo systemctl start mariadb
+
+Asegurar la instalación de MariaDB:
+
+$ sudo mysql_secure_installation
+
+Crear usuario 'dbmaster':
+
+$ sudo mysql -u root -p
+
+Dentro de la consola de MySQL:
+
+CREATE USER 'dbmaster'@'localhost' IDENTIFIED BY 'Passw0rd';
+CREATE USER 'dbmaster'@'%' IDENTIFIED BY 'Passw0rd';
+GRANT ALL PRIVILEGES ON *.* TO 'dbmaster'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'dbmaster'@'%';
+FLUSH PRIVILEGES;
+EXIT;
+
+Instalar PHP:
+
+$ sudo apt install php libapache2-mod-php php-mysql php-fpm
+
+Edita el archivo de configuración de Apache:
+
+$ sudo nano /etc/apache2/mods-enabled/dir.conf
+
+
+3. Configuración del DNS Bind9:
+*******************************
+Instalar Bind9:
+
+$ sudo apt install bind9 bind9utils bind9-doc dnsutils
+
+Editar el archivo de configuración de Bind9 para el dominio so2.local:
+
+$ sudo nano /etc/bind/named.conf.local
+
+Agregar la configuración para la zona maestra:
+
+zone "so2.local" {
+    type master;
+    file "/etc/bind/db.so2.local";
+};
+
+zone "5.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.192.168.5";
+};
+
+Crear el archivo de zona directa:
+
+$ sudo cp /etc/bind/db.local /etc/bind/db.so2.local
+
+$ sudo nano /etc/bind/db.so2.local
+
+Contenido del archivo:
+
+;
+; BIND data file for local zone
+;
+$TTL    604800
+@       IN      SOA     ns.so2.local. root.so2.local. (
+                      2         ; Serial
+                 604800         ; Refresh
+                  86400         ; Retry
+                2419200         ; Expire
+                 604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns.so2.local.
+ns      IN      A       192.168.5.10
+master  IN      A       192.168.5.10
+www     IN      A       192.168.5.10
+mail    IN      A       192.168.5.10
+ftp     IN      A       192.168.5.10
+
+Crear el archivo de zona inversa:
+
+$ sudo cp /etc/bind/db.127 /etc/bind/db.192.168.5
+
+$ sudo nano /etc/bind/db.192.168.5
+
+Contenido del archivo:
+
+;
+; BIND reverse data file for local 192.168.5. network
+;
+$TTL    604800
+@       IN      SOA     ns.so2.local. root.so2.local. (
+                      2         ; Serial
+                 604800         ; Refresh
+                  86400         ; Retry
+                2419200         ; Expire
+                 604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns.so2.local.
+10      IN      PTR     ns.so2.local.
+10      IN      PTR     master.so2.local.
+10      IN      PTR     www.so2.local.
+10      IN      PTR     mail.so2.local.
+10      IN      PTR     ftp.so2.local.
+
+Configuración de opciones del servidor DNS (Bind 9):
+
+$ sudo nano /etc/bind/named.conf.options
+
+Comente la línea:
+
+options {
+ listen-on port 53 { 127.0.0.1; };
+ //listen-on-v6 port 53 { ::1; };
+ ...
+
+Modifica el archivo named:
+
+$ sudo nano /etc/default/named
+
+Configure el parámetro OPTIONS:
+
+OPTIONS="-4 -u bind"
+
+Reiniciar Bind9 para aplicar los cambios:
+
+$ sudo systemctl restart bind9
+
+$ sudo systemctl status bind9
+
+Comprobación de la configuración de Bind 9:
+
+$ nslookup www.so2.local
+
+$ dig www.so2.local
+
+
+4. Configuración del servidor DHCP:
+***********************************
+
+Instalar el servidor DHCP:
+
+$ sudo apt install isc-dhcp-server
+
+Editar el archivo de configuración del servidor DHCP:
+
+$ sudo nano /etc/dhcp/dhcpd.conf
+
+Configuración del archivo:
+
+# Parámetros globales
+default-lease-time 600;
+max-lease-time 7200;
+
+# Información del dominio
+option domain-name "so2.local";
+option domain-name-servers 192.168.5.10;
+
+# Configuración de la subred
+subnet 192.168.5.0 netmask 255.255.255.0 {
+    range 192.168.5.50 192.168.5.100;
+    option routers 192.168.5.10;
+    option subnet-mask 255.255.255.0;
+}
+
+# Asignación estática por MAC Address
+host windows-client {
+    hardware ethernet 00:1A:2B:3C:4D:5E;
+    fixed-address 192.168.5.20;
+}
+
+Especificar la interfaz en la que el servidor DHCP debe escuchar:
+
+$ sudo nano /etc/default/isc-dhcp-server
+
+Asigna la interfaz de red que escucha las peticiones DHCPREQUEST:
+
+INTERFACESv4 = "ens33"
+
+Ejecución automática del servidor DHCP:
+
+$ sudo systemctl enable isc-dhcp-server
+
+Reiniciar el servicio DHCP:
+
+$ sudo systemctl restart isc-dhcp-server
+
+
+5. Configuración del servidor FTP:
+**********************************
+
+Instalar el servidor FTP (vsftpd):
+
+$ sudo apt install vsftpd
+
+Editar el archivo de configuración del servidor vsftpd:
+
+$ sudo nano /etc/vsftpd.conf
+
+Asegurarse de que las siguientes líneas estén configuradas:
+
+listen=NO
+listen_ipv6=NO
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+chroot_local_user=YES
+
+user_sub_token=$USER
+local_root=/home/$USER/ftp
+pasv_min_port=10000
+pasv_max_port=10100
+
+Directorio FTP y permisos necesarios para los recursos:
+
+$ sudo mkdir -p /home/fabianbch/ftp/upload
+$ sudo chmod 550 /home/fabianbch/ftp
+$ sudo chmod 750 /home/fabianbch/ftp/upload
+$ sudo chown -R fabianbch:fabianbch /home/fabianbch/ftp
+
+Ejecución automática del servidor FTP (vsftpd):
+
+$ sudo systemctl enable vsftpd
+
+Reiniciar vsftpd:
+
+$ sudo systemctl restart vsftpd
+
+
+6. Configuración del Firewall (UFW):
+************************************
+Instalar UFW:
+
+$ sudo apt install ufw
+
+Configurar UFW:
+
+$ sudo ufw default deny incoming
+$ sudo ufw default allow outgoing
+
+Permitir tráfico SSH, HTTP, SFTP, DNS:
+
+$ sudo ufw allow 22
+$ sudo ufw allow 80
+$ sudo ufw allow 21
+$ sudo ufw allow 53
+
+Ejecución automática del Firewall:
+
+$ sudo ufw enable
+
+Estado del Firewall para asegurar que está funcionando:
+
+$ sudo ufw status
