@@ -1,8 +1,6 @@
 # codeWorks para la comunidad.
-
-**by gWorks Cloud Solutions**
-
-![https://www.gworks-ec.com](https://www.gworks-ec.com/nia/uploads/2024/06/gWorks-EC_Logo_blue_socialNetworks.png)
+**by [gWorks Cloud Solutions](https://www.gworks-ec.com)**
+!(https://www.gworks-ec.com/nia/uploads/2024/06/gWorks-EC_Logo_blue_socialNetworks.png)
 
 > ### _Si usted lo puede soñar, nosotros lo podemos hacer._
 
