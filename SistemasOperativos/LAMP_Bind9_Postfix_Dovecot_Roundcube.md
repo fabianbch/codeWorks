@@ -22,6 +22,8 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 1. Actualizar el sistema:
 
+<br>
+
 `$ sudo apt update && sudo apt upgrade`
 
 <br>
@@ -32,6 +34,8 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 2. Configurar el hostname:
 
+<br>
+
 `$ sudo hostnamectl set-hostname master.so2.local`
 
 `$ echo "192.168.5.10 master.so2.local mail.so2.local" | sudo tee -a /etc/hosts`
@@ -40,11 +44,15 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 3. Configurar zona horaria:
 
+<br>
+
 `$ sudo timedatectl`
 
 <br>
 
 4. Eliminar configuraciones previas:
+
+<br>
 
 `$ sudo apt remove --purge postfix dovecot-core dovecot-imapd dovecot-pop3d roundcube roundcube-core roundcube-mysql`
 
@@ -61,6 +69,8 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 <br>
 
 5. Instalar Postfix MTA:
+
+<br>
 
 `$ sudo apt install postfix`
 
@@ -132,6 +142,8 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 6. Instalar Dovecot POP3, MDA:
 
+<br>
+
 `$ sudo apt install dovecot-pop3d dovecot-imapd`
 
 `$ sudo nano /etc/dovecot/conf.d/10-auth.conf`
@@ -159,6 +171,8 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 <br>
 
 7. Configuración Bind9:
+
+<br>
 
 `$ sudo nano /etc/bind/db.so2.local`
 
@@ -220,6 +234,8 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 9. Eventos de errores del servidor Postfix se almacenan en el directorio /var/log/roundcube:
 
+<br>
+
 `$ cd /var/log/roundcube`
 
 `$ sudo cat errors.log`
@@ -233,6 +249,8 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 <br>
 
 10. Configuración de Apache2:
+
+<br>
 
 `$ cd /etc/apache2/sites-available/`
 
