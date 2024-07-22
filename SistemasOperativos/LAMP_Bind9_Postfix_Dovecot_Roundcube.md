@@ -16,7 +16,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-![](https://www.gworks-ec.com/nia/uploads/2024/07/Postfix_implementacion-e1721677764145.png)
+<img src="https://www.gworks-ec.com/nia/uploads/2024/07/Postfix_implementacion-e1721677764145.png">
 
 <br>
 
