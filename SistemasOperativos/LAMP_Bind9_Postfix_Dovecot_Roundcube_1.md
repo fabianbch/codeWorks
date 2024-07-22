@@ -37,7 +37,6 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 <br>
 
 **PRE-REQUISITOS MANDATORIOS**
-**==========================**
 
 <br>
 
