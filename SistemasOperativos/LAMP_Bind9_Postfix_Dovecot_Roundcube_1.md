@@ -16,9 +16,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 
 `+-----------------------+                   +-------------------=---+`
-
 `|  Host: www.so2.local  |  192.168.5.10/24  |  Host: mail.s02.world |`
-
 `|   Apache2, MariaDB,   +---------+---------+  Postfix, POP3, IMAP, |`
 
 `|      Php, Bind9,      |                   |         Dovecot       |`
@@ -27,16 +25,18 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 `+-----------------------+                   +------------------=----+`
 
+<br>
 
 1. Actualizar el sistema:
 
 `$ sudo apt update && sudo apt upgrade`
 
+<br>
 
-**PRE-REQUISITOS MANDATORIOS**-
-
+**PRE-REQUISITOS MANDATORIOS**
 **==========================**
 
+<br>
 
 2. Configurar el hostname:
 
@@ -44,11 +44,13 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 `$ echo "192.168.5.10 master.so2.local mail.so2.local" | sudo tee -a /etc/hosts`
 
+<br>
 
 3. Configurar zona horaria:
 
 `$ sudo timedatectl`
 
+<br>
 
 4. Eliminar configuraciones previas:
 
