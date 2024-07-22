@@ -102,7 +102,9 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 `inet_protocols = all`
 
-- Agregar al final del archivo:
+<br>
+
+- Agregar al final del archivo /etc/postfix/main.cf:
 
 `home_mailbox = Maildir/`
 
@@ -224,7 +226,9 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 `$config['smtp_user'] = '';`
 
-`#Agregue las siguientes líneas al final para habilitar el debug de Roundcube.`
+<br>
+
+- Agregue las siguientes líneas al final para habilitar el debug de Roundcube:
 
 `$config['debug_level'] = 1;`
 
@@ -318,4 +322,4 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`[http://mail.so2.local](http://mail.so2.local)`
+[http://mail.so2.local](http://mail.so2.local)
