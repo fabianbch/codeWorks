@@ -1,0 +1,15 @@
+# Implementación de servidores de e-mail en Ubuntu Server 24.04
+**by gWorks Cloud Solutions**
+
+Los servidores de correo electrónico o e-mail Servers son sistemas informáticos que permiten a los usuarios enviar, recibir y gestionar correos electrónicos.
+
+Constituyen la base de la comunicación electrónica moderna, facilitando la comunicación entre personas, empresas y organizaciones:
+
+• Administración de cuentas de usuarios.
+Gestionan cuentas de usuario, permitiendo a cada usuario tener una dirección de correo electrónico única.
+
+• Envío de mensajes.
+Son responsables de enviar mensajes de correo electrónico a su destino, garantizando la entrega del mensaje a su destinatario.
+
+• Almacenamiento de mensajes.
+Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario no está en línea (correo diferido).
