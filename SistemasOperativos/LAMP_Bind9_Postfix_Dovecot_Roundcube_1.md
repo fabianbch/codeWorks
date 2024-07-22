@@ -15,17 +15,12 @@ Son responsables de enviar mensajes de correo electrónico a su destino, garanti
 Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario no está en línea (correo diferido).
 
 
-+-----------------------+                   +-------------------=---+
-
-|  Host: www.so2.local  |  192.168.5.10/24  |  Host: mail.s02.world |
-
-|   Apache2, MariaDB,   +---------+---------+  Postfix, POP3, IMAP, |
-
-|      Php, Bind9,      |                   |         Dovecot       |
-
-|   Webmail Roundcube   |                   |                       |
-
-+-----------------------+                   +------------------=----+
+`+-----------------------+                   +-------------------=---+`
+`|  Host: www.so2.local  |  192.168.5.10/24  |  Host: mail.s02.world |`
+`|   Apache2, MariaDB,   +---------+---------+  Postfix, POP3, IMAP, |`
+`|      Php, Bind9,      |                   |         Dovecot       |`
+`|   Webmail Roundcube   |                   |                       |`
+`+-----------------------+                   +------------------=----+`
 
 
 1. Actualizar el sistema:
@@ -36,15 +31,18 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 **PRE-REQUISITOS MANDATORIOS**
 **==========================**
 
+
 2. Configurar el hostname:
 
 `$ sudo hostnamectl set-hostname master.so2.local`
 
 `$ echo "192.168.5.10 master.so2.local mail.so2.local" | sudo tee -a /etc/hosts`
 
+
 3. Configurar zona horaria:
 
 `$ sudo timedatectl`
+
 
 4. Eliminar configuraciones previas:
 
