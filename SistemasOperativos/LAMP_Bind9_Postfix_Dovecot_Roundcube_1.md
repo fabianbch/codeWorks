@@ -14,9 +14,12 @@ Son responsables de enviar mensajes de correo electrónico a su destino, garanti
 - Almacenamiento de mensajes.
 Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario no está en línea (correo diferido).
 
+<br>
 
 `+-----------------------+                   +-------------------=---+`
+
 `|  Host: www.so2.local  |  192.168.5.10/24  |  Host: mail.s02.world |`
+
 `|   Apache2, MariaDB,   +---------+---------+  Postfix, POP3, IMAP, |`
 
 `|      Php, Bind9,      |                   |         Dovecot       |`
