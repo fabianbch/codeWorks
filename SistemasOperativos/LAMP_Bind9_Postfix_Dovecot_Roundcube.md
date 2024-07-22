@@ -246,11 +246,11 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 - Agregue las siguientes líneas al final del archivo:
 
-        `<Directory /var/lib/roundcube>`
+`<Directory /var/lib/roundcube>`
 
-            `Require all granted`
+`  Require all granted`
 
-        `</Directory>`
+`</Directory>`
 
 <br>
 
