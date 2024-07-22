@@ -13,56 +13,42 @@ Son responsables de enviar mensajes de correo electrónico a su destino, garanti
 
 - Almacenamiento de mensajes.
 Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario no está en línea (correo diferido).
-<br>
-<br>
+
+
 `+-----------------------+                   +-------------------=---+`
-<br>
+
 `|  Host: www.so2.local  |  192.168.5.10/24  |  Host: mail.s02.world |`
-<br>
+
 `|   Apache2, MariaDB,   +---------+---------+  Postfix, POP3, IMAP, |`
-<br>
+
 `|      Php, Bind9,      |                   |         Dovecot       |`
-<br>
+
 `|   Webmail Roundcube   |                   |                       |`
-<br>
+
 `+-----------------------+                   +------------------=----+`
 
-<br>
-<br>
 
 1. Actualizar el sistema:
 
-<br>
-
 `$ sudo apt update && sudo apt upgrade`
 
-<br>
-<br>
 
-**PRE-REQUISITOS MANDATORIOS**
-
-<br>
+**PRE-REQUISITOS MANDATORIOS**-
 
 **==========================**
 
-<br>
-<br>
 
-3. Configurar el hostname:
+2. Configurar el hostname:
 
 `$ sudo hostnamectl set-hostname master.so2.local`
 
 `$ echo "192.168.5.10 master.so2.local mail.so2.local" | sudo tee -a /etc/hosts`
 
-<br>
-<br>
 
 3. Configurar zona horaria:
 
 `$ sudo timedatectl`
 
-<br>
-<br>
 
 4. Eliminar configuraciones previas:
 
