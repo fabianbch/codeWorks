@@ -31,7 +31,7 @@
 
 <br>
 
-3. Edita el archivo hosts para relacionar con su hostname FQDN:
+3. Edición del archivo **hosts** para relacionar con su hostname FQDN:
 
 <br>
 
@@ -43,7 +43,7 @@
 
 <br>
 
-4. Muestra su zona horaria actual, por ejemplo Ecuador (GMT -5):
+4. Verificación de su zona horaria actual, por ejemplo Ecuador (GMT -5):
 
 <br>
 
@@ -53,7 +53,7 @@
 
 <br>
 
-5. Establece la zona horaria deseada, por ejemplo, "America/Guayaquil":
+5. Establecimiento de la zona horaria deseada, por ejemplo "America/Guayaquil":
 
 <br>
 
@@ -61,7 +61,7 @@
 
 <br>
 
-6. Aplicar los cambios, reiniciando el servidor:
+6. Aplica los cambios, y reinicio del sistema:
 
 <br>
 
@@ -81,7 +81,7 @@
 
 <br>
 
-2. Configuración de interfaz LAN:
+2. Configuración de la interfaz LAN:
 
 <br>
 
@@ -113,7 +113,7 @@
 
 <br>
 
-3. Aplicar los cambios:
+3. Aplica los cambios en las interfaces de red:
 
 <br>
 
@@ -121,15 +121,11 @@
 
 <br>
 
-4. Configuración de interfaz WAN:
+4. Configuración de la interfaz WAN:
 
 <br>
 
 `$ sudo nano /etc/netplan/02-netcfg.yaml`
-
-<br>
-
-5. Configuración del archivo:
 
 <br>
 
@@ -147,7 +143,7 @@
 
 <br>
   
-6. Aplicar los cambios:
+5. Aplica los cambios en las interfaces de red:
 
 <br>
 
