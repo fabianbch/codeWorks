@@ -1,5 +1,7 @@
-# Rutina de configuración integral de un servidor Ubuntu 24.04
+# Rutina de configuración inicial de un servidor Ubuntu 24.04
 **by [gWorks Cloud Solutions](https://www.gworks-ec.com)**
+
+<br>
 
 **PRE-REQUISITOS MANDATORIOS.**
 
@@ -84,17 +86,29 @@
 <br>
 
 `network:`
+
 `  ethernets:`
+
 `    ens33:`
+
 `      dhcp4: no`
+
 `      addresses: [192.168.5.10/24]`
+
 `      routes:`
+
 `	  - to: default`
+
 `        via: IP_INTERNET_GATEWAY`
+
 `      nameservers:`
+
 `        addresses: [192.168.5.10]`
+
 `		search: [so2.local]`
+
 `  version: 2`
+
 `  renderer: networkd`
 
 <br>
@@ -120,10 +134,15 @@
 <br>
 
 `network:`
+
 `  ethernets:`
+
 `    ens37:`
+
 `      dhcp4: yes`
+
 `  version: 2`
+
 `  renderer: networkd`
 
 <br>
