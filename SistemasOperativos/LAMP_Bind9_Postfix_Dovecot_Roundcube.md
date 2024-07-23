@@ -1,17 +1,30 @@
 # Implementación de servidores de e-mail en Ubuntu Server 24.04
 **by [gWorks Cloud Solutions](https://www.gworks-ec.com)**
 
+<br>
+
 Los servidores de correo electrónico o e-mail Servers son sistemas informáticos que permiten a los usuarios enviar, recibir y gestionar correos electrónicos.
+
+<br>
 
 Constituyen la base de la comunicación electrónica moderna, facilitando la comunicación entre personas, empresas y organizaciones:
 
+<br>
+
 - Administración de cuentas de usuarios.
+
 Gestionan cuentas de usuario, permitiendo a cada usuario tener una dirección de correo electrónico única.
 
+<br>
+
 - Envío de mensajes.
+
 Son responsables de enviar mensajes de correo electrónico a su destino, garantizando la entrega del mensaje a su destinatario.
 
+<br>
+
 - Almacenamiento de mensajes.
+
 Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario no está en línea (correo diferido).
 
 <br>
@@ -20,7 +33,10 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-1. Actualizar el sistema:
+**PRE-REQUISITOS MANDATORIOS.**
+
+<br>
+1. Actualización del sistema:
 
 <br>
 
@@ -28,11 +44,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-**PRE-REQUISITOS MANDATORIOS.**
-
-<br>
-
-2. Configurar el hostname:
+2. Configuración el hostname:
 
 <br>
 
@@ -42,7 +54,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-3. Configurar zona horaria:
+3. Configuración de la zona horaria:
 
 <br>
 
@@ -50,7 +62,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-4. Eliminar configuraciones previas:
+4. Eliminación de configuraciones previas:
 
 <br>
 
@@ -68,7 +80,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-5. Instalar Postfix MTA:
+1. Instalación de Postfix MTA:
 
 <br>
 
@@ -104,7 +116,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-- Agregar al final del archivo /etc/postfix/main.cf:
+- Agregue al final del archivo /etc/postfix/main.cf:
 
 `home_mailbox = Maildir/`
 
@@ -116,11 +128,17 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 `$ sudo systemctl enable postfix`
 
+<br>
+
+2. Instalación del cliente de e-mail por consola Mailx:
+
+<br>
+
 `$ sudo apt install bsd-mailx`
 
 <br>
 
-- Mensaje enviado desde usuario1 al usuario2:
+- Mensaje de prueba de envio desde usuario1 al usuario2:
 
 `$ mail usuario2`
 
@@ -142,7 +160,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-6. Instalar Dovecot POP3, MDA:
+3. Instalación de Dovecot POP3 e IMAP:
 
 <br>
 
@@ -172,7 +190,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-7. Configuración Bind9:
+1. Configuración DNS Bind9:
 
 <br>
 
@@ -204,7 +222,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-8. Instalar Roundcube Webmail Client:
+1. Instalación de Roundcube Webmail Client:
 
 <br>
 
@@ -212,7 +230,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 - En la opción `dbconfig-common: yes`
 
-- Proporcione una contraseña del usuario "roundcube"!!!
+- Proporcione una contraseña del usuario **roundcube** que administrará las conexiones con la base de datos MariaDB.
 
 <br>
 
@@ -236,7 +254,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-9. Eventos de errores del servidor Postfix se almacenan en el directorio /var/log/roundcube:
+2. Revisión de eventos del servidor Postfix se almacenan en el directorio /var/log/roundcube:
 
 <br>
 
@@ -252,7 +270,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-10. Configuración de Apache2:
+1. Configuración de Apache Web Server para publicación de la interfaz Web de Roundcube:
 
 <br>
 
@@ -290,7 +308,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-11. Configurar las reglas de filtrado en UFW:
+1. Configuración de las reglas de filtrado de tráfico en UFW Firewall:
 
 <br>
 
@@ -318,7 +336,7 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-12. Ingrese en el browser del usuario la URL del servicio de correo electrónico:
+1. Acceso vía browser del usuario a la URL del servicio de correo electrónico:
 
 <br>
 
