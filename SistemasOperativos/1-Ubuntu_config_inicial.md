@@ -178,5 +178,3 @@ network:
 $ sudo netplan apply
 
 ```
-
-<br>
