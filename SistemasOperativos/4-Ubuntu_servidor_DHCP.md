@@ -7,7 +7,11 @@
 
 <br>
 
-`$ sudo apt install isc-dhcp-server`
+```shell
+
+$ sudo apt install isc-dhcp-server
+
+```
 
 <br>
 
@@ -15,7 +19,11 @@
 
 <br>
 
-`$ sudo nano /etc/dhcp/dhcpd.conf`
+```shell
+
+$ sudo nano /etc/dhcp/dhcpd.conf
+
+```
 
 <br>
 
@@ -27,23 +35,19 @@
 
 <br>
 
-`default-lease-time 600;`
+```shell
 
-`max-lease-time 7200;`
+default-lease-time 600;
+max-lease-time 7200;
+option domain-name "so2.local";
+option domain-name-servers 192.168.5.10;
+subnet 192.168.5.0 netmask 255.255.255.0 {
+    range 192.168.5.50 192.168.5.100;
+    option routers 192.168.5.10;
+    option subnet-mask 255.255.255.0;
+}
 
-`option domain-name "so2.local";`
-
-`option domain-name-servers 192.168.5.10;`
-
-`subnet 192.168.5.0 netmask 255.255.255.0 {`
-
-`    range 192.168.5.50 192.168.5.100;`
-    
-`    option routers 192.168.5.10;`
-    
-`    option subnet-mask 255.255.255.0;`
-
-`}`
+```
 
 <br>
 
@@ -51,13 +55,14 @@
 
 <br>
 
-`host windows-client {`
+```shell
 
-`    hardware ethernet 00:1A:2B:3C:4D:5E;`
-    
-`    fixed-address 192.168.5.20;`
+host windows-client {
+    hardware ethernet 00:1A:2B:3C:4D:5E;
+    fixed-address 192.168.5.20;
+}
 
-`}`
+```
 
 <br>
 
@@ -65,9 +70,13 @@
 
 <br>
 
-`$ sudo nano /etc/default/isc-dhcp-server`
+```shell
 
-`INTERFACESv4 = "ens33"`
+$ sudo nano /etc/default/isc-dhcp-server
+
+INTERFACESv4 = "ens33"
+
+```
 
 <br>
 
@@ -75,7 +84,11 @@
 
 <br>
 
-`$ sudo systemctl enable isc-dhcp-server`
+```shell
+
+$ sudo systemctl enable isc-dhcp-server
+
+```
 
 <br>
 
@@ -83,4 +96,8 @@
 
 <br>
 
-`$ sudo systemctl restart isc-dhcp-server`
+```shell
+
+$ sudo systemctl restart isc-dhcp-server
+
+```
