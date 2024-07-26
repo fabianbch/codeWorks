@@ -40,7 +40,11 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo apt update && sudo apt upgrade`
+```shell
+
+$ sudo apt update && sudo apt upgrade
+
+```
 
 <br>
 
@@ -48,9 +52,13 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo hostnamectl set-hostname master.so2.local`
+```shell
 
-`$ echo "192.168.5.10 master.so2.local mail.so2.local" | sudo tee -a /etc/hosts`
+$ sudo hostnamectl set-hostname master.so2.local
+
+$ echo "192.168.5.10 master.so2.local mail.so2.local" | sudo tee -a /etc/hosts
+
+```
 
 <br>
 
@@ -58,7 +66,11 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo timedatectl`
+```shell
+
+$ sudo timedatectl
+
+```
 
 <br>
 
@@ -66,13 +78,17 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo apt remove --purge postfix dovecot-core dovecot-imapd dovecot-pop3d roundcube roundcube-core roundcube-mysql`
+```shell
 
-`$ sudo apt autoremove`
+$ sudo apt remove --purge postfix dovecot-core dovecot-imapd dovecot-pop3d roundcube roundcube-core roundcube-mysql
 
-`$ sudo apt autoclean`
+$ sudo apt autoremove
 
-`$ sudo rm -rf /etc/postfix /etc/dovecot`
+$ sudo apt autoclean
+
+$ sudo rm -rf /etc/postfix /etc/dovecot
+
+```
 
 <br>
 
@@ -84,49 +100,55 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo apt install postfix`
+```shell
 
-`OPCIÓN 2: Internet Site.`
+$ sudo apt install postfix
 
-- Digite su `System mail name: so2.local`
+OPCIÓN 2: Internet Site.
+- Digite su `System mail name: so2.local
 
-<br>
-
-`$ sudo nano /etc/postfix/main.cf`
-
-`myhostname = master.so2.local`
-
-`alias_maps = hash:/etc/aliases`
-
-`alias_database = hash:/etc/aliases`
-
-`myorigin = /etc/mailname`
-
-`mydestination = $myhostname, so2.local, master.so2.local, localhost.so2.local, localhost`
-
-`relayhost =`
-
-`mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 192.168.5.0/24`
-
-`...`
-
-`inet_interfaces = all`
-
-`inet_protocols = all`
+```
 
 <br>
 
-- Agregue al final del archivo /etc/postfix/main.cf:
+```shell
 
-`home_mailbox = Maildir/`
+$ sudo nano /etc/postfix/main.cf
 
-`mailbox_command =`
+myhostname = master.so2.local
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+myorigin = /etc/mailname
+mydestination = $myhostname, so2.local, master.so2.local, localhost.so2.local, localhost
+relayhost =
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 192.168.5.0/24
+...
+...
+inet_interfaces = all
+inet_protocols = all
+
+```
 
 <br>
 
-`$ sudo systemctl restart postfix`
+- Agregue al final del archivo **/etc/postfix/main.cf**:
 
-`$ sudo systemctl enable postfix`
+```shell
+
+home_mailbox = Maildir/
+mailbox_command =
+
+```
+
+<br>
+
+```shell
+
+$ sudo systemctl restart postfix
+
+$ sudo systemctl enable postfix
+
+```
 
 <br>
 
@@ -134,29 +156,38 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo apt install bsd-mailx`
+```shell
+
+$ sudo apt install bsd-mailx
+
+```
 
 <br>
 
 - Mensaje de prueba de envio desde usuario1 al usuario2:
 
-`$ mail usuario2`
+```shell
 
-`Cc: usuario1@so2.local`
+$ mail usuario2
 
-`Subject: Asunto del correo de prueba.`
+Cc: usuario1@so2.local
+Subject: Asunto del correo de prueba.
 
-`¡Esto es una pruba!`
+¡Esto es una prueba!
+
+```
 
 <br>
 
-`$ mail`
+```shell
 
-`"/var/mail/usuario1": 1 message 1 new`
+$ mail
 
-`N   1 Usuario 1        Sun Jul 21 10:50  14/478   Prueba`
+"/var/mail/usuario1": 1 message 1 new
+N   1 Usuario 1        Sun Jul 21 10:50  14/478   Asunto del correo de prueba.
+?
 
-`?`
+```
 
 <br>
 
@@ -164,25 +195,36 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo apt install dovecot-pop3d dovecot-imapd`
+```shell
 
-`$ sudo nano /etc/dovecot/conf.d/10-auth.conf`
+$ sudo apt install dovecot-pop3d dovecot-imapd
 
-`disable_plaintext_auth = no`
+$ sudo nano /etc/dovecot/conf.d/10-auth.conf
 
-<br>
+disable_plaintext_auth = no
 
-`$ sudo nano /etc/dovecot/conf.d/10-mail.conf`
-
-`mail_location = maildir:~/Maildir`
-
-`#mail_location = mbox:~/mail:INBOX=/var/mail/%u`
+```
 
 <br>
 
-`$ sudo systemctl restart dovecot`
+```shell
 
-`$ sudo systemctl enable dovecot`
+$ sudo nano /etc/dovecot/conf.d/10-mail.conf
+
+mail_location = maildir:~/Maildir
+#mail_location = mbox:~/mail:INBOX=/var/mail/%u
+
+```
+
+<br>
+
+```shell
+
+$ sudo systemctl restart dovecot
+
+$ sudo systemctl enable dovecot
+
+```
 
 <br>
 
@@ -194,27 +236,37 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo nano /etc/bind/db.so2.local`
+```shell
 
-`mail    IN      A       192.168.5.10`
+$ sudo nano /etc/bind/db.so2.local`
 
-`@       IN      MX  10  mail.so2.local.`
+mail    IN      A       192.168.5.10
+@       IN      MX  10  mail.so2.local.
 
-<br>
-
-`$ sudo nano /etc/bind/db.192.168.5`
-
-`10      IN      PTR     mail.so2.local.`
+```
 
 <br>
 
-`$ sudo resolvectl flush-caches`
+```shell
 
-`$ sudo systemctl restart bind9`
+$ sudo nano /etc/bind/db.192.168.5
+10      IN      PTR     mail.so2.local.
 
-`$ dig -t MX so2.local`
+```
 
-`$ dig -t MX mail.so2.local`
+<br>
+
+```shell
+
+$ sudo resolvectl flush-caches
+
+$ sudo systemctl restart bind9
+
+$ dig -t MX so2.local
+
+$ dig -t MX mail.so2.local
+
+```
 
 <br>
 
@@ -226,7 +278,11 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo apt install roundcube`
+```shell
+
+$ sudo apt install roundcube
+
+```
 
 - En la opción `dbconfig-common: yes`
 
@@ -234,35 +290,43 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo nano /etc/roundcube/config.inc.php`
+```shell
 
-`$config['default_host'] = 'mail.so2.local';`
+$ sudo nano /etc/roundcube/config.inc.php
 
-`$config['imap_host'] = ["mail.so2.local:143"];`
+$config['default_host'] = 'mail.so2.local';
+$config['imap_host'] = ["mail.so2.local:143"];
+$config['smtp_host'] = 'mail.so2.local:25';
+$config['smtp_user'] = '';
 
-`$config['smtp_host'] = 'mail.so2.local:25';`
-
-`$config['smtp_user'] = '';`
+```
 
 <br>
 
 - Agregue las siguientes líneas al final para habilitar el debug de Roundcube:
 
-`$config['debug_level'] = 1;`
+```shell
 
-`$config['smtp_debug'] = true;`
+$config['debug_level'] = 1;
+$config['smtp_debug'] = true;
+
+```
 
 <br>
 
-2. Revisión de eventos del servidor Postfix se almacenan en el directorio /var/log/roundcube:
+2. Revisión de eventos del servidor Postfix se almacenan en el directorio **/var/log/roundcube**:
 
 <br>
 
-`$ cd /var/log/roundcube`
+```shell
 
-`$ sudo cat errors.log`
+$ cd /var/log/roundcube
 
-`$ sudo cat smtp.log`
+$ sudo cat errors.log
+
+$ sudo cat smtp.log
+
+```
 
 <br>
 
@@ -274,33 +338,43 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ cd /etc/apache2/sites-available/`
+```shell
 
-`$ sudo cp 000-default.conf roundcube.conf`
+$ cd /etc/apache2/sites-available/
 
-`$ sudo nano roundcube.conf`
+$ sudo cp 000-default.conf roundcube.conf
 
-`ServerName mail.so2.local`
+$ sudo nano roundcube.conf
 
-`...`
+ServerName mail.so2.local
+...
+...
+
+```
 
 - Agregue las siguientes líneas al final del archivo:
 
-`<Directory /var/lib/roundcube>`
+```shell
 
-`  Require all granted`
+<Directory /var/lib/roundcube>
+  Require all granted
+</Directory>
 
-`</Directory>`
+```
 
 <br>
 
-`$ cd /etc/apache2/sites-enabled/`
+```shell
 
-`$ sudo a2ensite roundcube.conf`
+$ cd /etc/apache2/sites-enabled/
 
-`$ sudo systemctl reload apache2`
+$ sudo a2ensite roundcube.conf
 
-`$ sudo systemctl restart apache2 postfix dovecot`
+$ sudo systemctl reload apache2
+
+$ sudo systemctl restart apache2 postfix dovecot
+
+```
 
 <br>
 
@@ -312,23 +386,29 @@ Almacenan todos los mensajes recibidos por los usuarios, incluso si el usuario n
 
 <br>
 
-`$ sudo ufw allow 22`
+```shell
 
-`$ sudo ufw allow 80`
+$ sudo ufw allow 22`
 
-`$ sudo ufw allow 25`
+$ sudo ufw allow 80
 
-`$ sudo ufw allow 110`
+$ sudo ufw allow 25
 
-`$ sudo ufw allow 143`
+$ sudo ufw allow 110
 
-`$ sudo ufw allow 3306`
+$ sudo ufw allow 143
+
+$ sudo ufw allow 3306
+
+```
 
 <br>
 
-`$ sudo ufw enable`
+```shell
 
-`$ sudo ufw status`
+$ sudo ufw enable
+
+$ sudo ufw status
 
 <br>
 
