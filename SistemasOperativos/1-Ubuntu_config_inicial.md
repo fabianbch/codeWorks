@@ -11,11 +11,14 @@
 
 <br>
 
-```
+``` shell
 
 $ sudo apt install iputils-ping
+
 $ sudo apt install net-tools
+
 $ sudo apt install bash-completion
+
 $ source ~/.bashrc
 
 ```
