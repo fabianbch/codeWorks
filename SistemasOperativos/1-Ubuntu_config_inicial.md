@@ -10,12 +10,16 @@
 1. Instalación de comandos básicos:
 
 <br>
+
 ```
+
 $ sudo apt install iputils-ping
 $ sudo apt install net-tools
 $ sudo apt install bash-completion
 $ source ~/.bashrc
+
 ```
+
 <br>
 
 2. Configuración del nombre del servidor:
