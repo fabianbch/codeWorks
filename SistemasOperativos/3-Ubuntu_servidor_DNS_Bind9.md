@@ -9,7 +9,7 @@
 
 ```shell
 
-`$ sudo apt install bind9 bind9utils bind9-doc dnsutils`
+$ sudo apt install bind9 bind9utils bind9-doc dnsutils
 
 ```
 
@@ -19,7 +19,11 @@
 
 <br>
 
-`$ sudo nano /etc/bind/named.conf.local`
+```shell
+
+$ sudo nano /etc/bind/named.conf.local
+
+```
 
 <br>
 
@@ -27,23 +31,25 @@
 
 <br>
 
-`zone "so2.local" {`
+```shell
 
-`    type master;`
+zone "so2.local" {
+    type master;
+    file "/etc/bind/db.so2.local";
+};
 
-`    file "/etc/bind/db.so2.local";`
-
-`};`
+```
 
 <br>
 
-`zone "5.168.192.in-addr.arpa" {`
+```shell
 
-`    type master;`
+zone "5.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/db.192.168.5";
+};
 
-`    file "/etc/bind/db.192.168.5";`
-
-`};`
+```
 
 <br>
 
@@ -51,9 +57,13 @@
 
 <br>
 
-`$ sudo cp /etc/bind/db.local /etc/bind/db.so2.local`
+```shell
 
-`$ sudo nano /etc/bind/db.so2.local`
+$ sudo cp /etc/bind/db.local /etc/bind/db.so2.local
+
+$ sudo nano /etc/bind/db.so2.local
+
+```
 
 <br>
 
@@ -61,39 +71,27 @@
 
 <br>
 
-`;`
+```shell
 
-`; BIND data file for local zone`
+;
+; BIND data file for local zone
+;
+$TTL    604800
+@       IN      SOA     ns.so2.local. root.so2.local. (
+                      2         ; Serial
+                 604800         ; Refresh
+                  86400         ; Retry
+                2419200         ; Expire
+                 604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns.so2.local.
+ns      IN      A       192.168.5.10
+master  IN      A       192.168.5.10
+www     IN      A       192.168.5.10
+mail    IN      A       192.168.5.10
+ftp     IN      A       192.168.5.10
 
-`;`
-
-`$TTL    604800`
-
-`@       IN      SOA     ns.so2.local. root.so2.local. (`
-
-`                      2         ; Serial`
-
-`                 604800         ; Refresh`
-
-`                  86400         ; Retry`
-
-`                2419200         ; Expire`
-
-`                 604800 )       ; Negative Cache TTL`
-
-`;`
-
-`@       IN      NS      ns.so2.local.`
-
-`ns      IN      A       192.168.5.10`
-
-`master  IN      A       192.168.5.10`
-
-`www     IN      A       192.168.5.10`
-
-`mail    IN      A       192.168.5.10`
-
-`ftp     IN      A       192.168.5.10`
+```
 
 <br>
 
@@ -101,9 +99,13 @@
 
 <br>
 
-`$ sudo cp /etc/bind/db.127 /etc/bind/db.192.168.5`
+```shell
 
-`$ sudo nano /etc/bind/db.192.168.5`
+$ sudo cp /etc/bind/db.127 /etc/bind/db.192.168.5
+
+$ sudo nano /etc/bind/db.192.168.5
+
+```
 
 <br>
 
@@ -111,39 +113,27 @@
 
 <br>
 
-`;`
+```shell
 
-`; BIND reverse data file for local 192.168.5. network`
+;
+; BIND reverse data file for local 192.168.5. network
+;
+$TTL    604800
+@       IN      SOA     ns.so2.local. root.so2.local. (
+                      2         ; Serial
+                 604800         ; Refresh
+                  86400         ; Retry
+                2419200         ; Expire
+                 604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns.so2.local.
+10      IN      PTR     ns.so2.local.
+10      IN      PTR     master.so2.local.
+10      IN      PTR     www.so2.local.
+10      IN      PTR     mail.so2.local.
+10      IN      PTR     ftp.so2.local.
 
-`;`
-
-`$TTL    604800`
-
-`@       IN      SOA     ns.so2.local. root.so2.local. (`
-
-`                      2         ; Serial`
-
-`                 604800         ; Refresh`
-
-`                  86400         ; Retry`
-
-`                2419200         ; Expire`
-
-`                 604800 )       ; Negative Cache TTL`
-
-`;`
-
-`@       IN      NS      ns.so2.local.`
-
-`10      IN      PTR     ns.so2.local.`
-
-`10      IN      PTR     master.so2.local.`
-
-`10      IN      PTR     www.so2.local.`
-
-`10      IN      PTR     mail.so2.local.`
-
-`10      IN      PTR     ftp.so2.local.`
+```
 
 <br>
 
@@ -151,7 +141,11 @@
 
 <br>
 
-`$ sudo nano /etc/bind/named.conf.options`
+```shell
+
+$ sudo nano /etc/bind/named.conf.options
+
+```
 
 <br>
 
@@ -159,13 +153,14 @@
 
 <br>
 
-`options {`
+```shell
 
-` listen-on port 53 { 127.0.0.1; };`
+options {
+ listen-on port 53 { 127.0.0.1; };
+ //listen-on-v6 port 53 { ::1; };
+ ...
 
-` //listen-on-v6 port 53 { ::1; };`
-
-` ...`
+```
 
 <br>
 
@@ -173,7 +168,11 @@
 
 <br>
 
-`$ sudo nano /etc/default/named`
+```shell
+
+$ sudo nano /etc/default/named
+
+```
 
 <br>
 
@@ -181,7 +180,11 @@
 
 <br>
 
-`OPTIONS="-4 -u bind"`
+```shell
+
+OPTIONS="-4 -u bind"
+
+```
 
 <br>
 
@@ -189,9 +192,13 @@
 
 <br>
 
-`$ sudo systemctl restart bind9`
+```shell
 
-`$ sudo systemctl status bind9`
+$ sudo systemctl restart bind9
+
+$ sudo systemctl status bind9
+
+```
 
 <br>
 
@@ -199,6 +206,10 @@
 
 <br>
 
-`$ nslookup www.so2.local`
+```shell
 
-`$ dig www.so2.local`
+$ nslookup www.so2.local
+
+$ dig www.so2.local
+
+```
