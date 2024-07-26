@@ -11,7 +11,7 @@
 
 <br>
 
-``` shell
+```
 
 $ sudo apt install iputils-ping
 
