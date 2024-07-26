@@ -410,6 +410,8 @@ $ sudo ufw enable
 
 $ sudo ufw status
 
+```
+
 <br>
 
 **ACCESO Y PRUEBA VÍA BROWSER DEL USUARIO.**
