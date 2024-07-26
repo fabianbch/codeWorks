@@ -7,13 +7,17 @@
 
 <br>
 
-`$ sudo apt update && sudo apt upgrade`
+```shell
 
-`$ sudo apt install apache2`
+$ sudo apt update && sudo apt upgrade
 
-`$ sudo systemctl enable apache2`
+$ sudo apt install apache2
 
-`$ sudo systemctl start apache2`
+$ sudo systemctl enable apache2
+
+$ sudo systemctl start apache2
+
+```
 
 <br>
 
@@ -21,11 +25,15 @@
 
 <br>
 
-`$ sudo apt install mariadb-server`
+```shell
 
-`$ sudo systemctl enable mariadb`
+$ sudo apt install mariadb-server
 
-`$ sudo systemctl start mariadb`
+$ sudo systemctl enable mariadb
+
+$ sudo systemctl start mariadb
+
+```
 
 <br>
 
@@ -33,7 +41,11 @@
 
 <br>
 
-`$ sudo mysql_secure_installation`
+```shell
+
+$ sudo mysql_secure_installation
+
+```
 
 <br>
 
@@ -41,25 +53,33 @@
 
 <br>
 
-`$ sudo mysql -u root -p`
+```shell
+
+$ sudo mysql -u root -p
+
+```
 
 <br>
 
-- Creación del usuario **admin_db**:
+- Creación del usuario **admin_db** en MySQL/MariaDB:
 
 <br>
 
-`CREATE USER 'admin_db'@'localhost' IDENTIFIED BY 'password';`
+```shell
 
-`CREATE USER 'admin_db'@'%' IDENTIFIED BY 'password';`
+CREATE USER 'admin_db'@'localhost' IDENTIFIED BY 'password';
 
-`GRANT ALL PRIVILEGES ON *.* TO 'admin_db'@'localhost';`
+CREATE USER 'admin_db'@'%' IDENTIFIED BY 'password';
 
-`GRANT ALL PRIVILEGES ON *.* TO 'admin_db'@'%';`
+GRANT ALL PRIVILEGES ON *.* TO 'admin_db'@'localhost';
 
-`FLUSH PRIVILEGES;`
+GRANT ALL PRIVILEGES ON *.* TO 'admin_db'@'%';
 
-`EXIT;`
+FLUSH PRIVILEGES;
+
+EXIT;
+
+```
 
 <br>
 
@@ -67,7 +87,11 @@
 
 <br>
 
-`$ sudo apt install php libapache2-mod-php php-mysql php-fpm`
+```shell
+
+$ sudo apt install php libapache2-mod-php php-mysql php-fpm
+
+```
 
 <br>
 
@@ -75,6 +99,8 @@
 
 <br>
 
-`$ sudo nano /etc/apache2/mods-enabled/dir.conf`
+```shell
 
-<br>
+$ sudo nano /etc/apache2/mods-enabled/dir.conf
+
+```
