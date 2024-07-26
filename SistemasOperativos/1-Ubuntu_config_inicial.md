@@ -120,11 +120,11 @@ network:
       dhcp4: no
       addresses: [192.168.5.10/24]
       routes:
-	  - to: default
-        via: IP_INTERNET_GATEWAY
+        - to: default
+          via: IP_INTERNET_GATEWAY
       nameservers:
         addresses: [192.168.5.10]
-		search: [so2.local]
+          search: [so2.local]
   version: 2
   renderer: networkd
 
