@@ -13,7 +13,11 @@ El sistema de seguridad perimetral de red, controla el tráfico entrante y salie
 
 1. Instalación del Firewall UFW:
 
-`$ sudo apt install ufw`
+```shell
+
+$ sudo apt install ufw
+
+```
 
 <br>
 
@@ -21,9 +25,13 @@ El sistema de seguridad perimetral de red, controla el tráfico entrante y salie
 
 <br>
 
-`$ sudo ufw default deny incoming`
+```shell
 
-`$ sudo ufw default allow outgoing`
+$ sudo ufw default deny incoming
+
+$ sudo ufw default allow outgoing
+
+```
 
 <br>
 
@@ -31,13 +39,17 @@ El sistema de seguridad perimetral de red, controla el tráfico entrante y salie
 
 <br>
 
-`$ sudo ufw allow 22`
+```shell
 
-`$ sudo ufw allow 80`
+$ sudo ufw allow 22
 
-`$ sudo ufw allow 21`
+$ sudo ufw allow 80
 
-`$ sudo ufw allow 53`
+$ sudo ufw allow 21
+
+$ sudo ufw allow 53
+
+```
 
 <br>
 
@@ -45,7 +57,11 @@ El sistema de seguridad perimetral de red, controla el tráfico entrante y salie
 
 <br>
 
-`$ sudo ufw enable`
+```shell
+
+$ sudo ufw enable
+
+```
 
 <br>
 
@@ -53,4 +69,8 @@ El sistema de seguridad perimetral de red, controla el tráfico entrante y salie
 
 <br>
 
-`$ sudo ufw status`
+```shell
+
+$ sudo ufw status
+
+```
