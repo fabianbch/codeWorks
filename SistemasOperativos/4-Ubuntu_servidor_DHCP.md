@@ -41,6 +41,7 @@ default-lease-time 600;
 max-lease-time 7200;
 option domain-name "so2.local";
 option domain-name-servers 192.168.5.10;
+
 subnet 192.168.5.0 netmask 255.255.255.0 {
     range 192.168.5.50 192.168.5.100;
     option routers 192.168.5.10;
