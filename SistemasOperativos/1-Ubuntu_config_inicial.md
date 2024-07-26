@@ -11,7 +11,7 @@
 
 <br>
 
-```
+``` shell
 
 $ sudo apt install iputils-ping
 
@@ -29,9 +29,13 @@ $ source ~/.bashrc
 
 <br>
 
-`$ hostname`
+``` shell
 
-`$ sudo hostnamectl set-hostname srvmaster.so2.local`
+$ hostname
+
+$ sudo hostnamectl set-hostname srvmaster.so2.local
+
+```
 
 <br>
 
@@ -39,11 +43,14 @@ $ source ~/.bashrc
 
 <br>
 
-`$ sudo nano /etc/hosts`
+``` shell
 
-`192.168.5.10    master.so2.local`
+$ sudo nano /etc/hosts
 
-`192.168.5.10    mail.so2.local`
+192.168.5.10    master.so2.local
+192.168.5.10    mail.so2.local
+
+```
 
 <br>
 
@@ -51,9 +58,13 @@ $ source ~/.bashrc
 
 <br>
 
-`$ sudo timedatectl`
+``` shell
 
-`$ sudo timedatectl | grep Time`
+$ sudo timedatectl
+
+$ sudo timedatectl | grep Time
+
+```
 
 <br>
 
@@ -61,7 +72,11 @@ $ source ~/.bashrc
 
 <br>
 
-`$ sudo timedatectl set-timezone "America/Guayaquil"`
+``` shell
+
+$ sudo timedatectl set-timezone "America/Guayaquil"
+
+```
 
 <br>
 
@@ -69,7 +84,11 @@ $ source ~/.bashrc
 
 <br>
 
-`$ sudo reboot now`
+``` shell
+
+$ sudo reboot now
+
+```
 
 <br>
 
@@ -81,7 +100,11 @@ $ source ~/.bashrc
 
 <br>
 
-`$ sudo nano /etc/netplan/50-cloud-init.yaml`
+``` shell
+
+$ sudo nano /etc/netplan/50-cloud-init.yaml
+
+```
 
 <br>
 
@@ -89,31 +112,23 @@ $ source ~/.bashrc
 
 <br>
 
-`network:`
+``` shell
 
-`  ethernets:`
+network:
+  ethernets:
+    ens33:
+      dhcp4: no
+      addresses: [192.168.5.10/24]
+      routes:
+	  - to: default
+        via: IP_INTERNET_GATEWAY
+      nameservers:
+        addresses: [192.168.5.10]
+		search: [so2.local]
+  version: 2
+  renderer: networkd
 
-`    ens33:`
-
-`      dhcp4: no`
-
-`      addresses: [192.168.5.10/24]`
-
-`      routes:`
-
-`	  - to: default`
-
-`        via: IP_INTERNET_GATEWAY`
-
-`      nameservers:`
-
-`        addresses: [192.168.5.10]`
-
-`		search: [so2.local]`
-
-`  version: 2`
-
-`  renderer: networkd`
+```
 
 <br>
 
@@ -121,7 +136,11 @@ $ source ~/.bashrc
 
 <br>
 
-`$ sudo netplan apply`
+``` shell
+
+$ sudo netplan apply
+
+```
 
 <br>
 
@@ -129,21 +148,24 @@ $ source ~/.bashrc
 
 <br>
 
-`$ sudo nano /etc/netplan/02-netcfg.yaml`
+``` shell
+
+$ sudo nano /etc/netplan/02-netcfg.yaml
+
+```
 
 <br>
 
-`network:`
+``` shell
 
-`  ethernets:`
+network:
+  ethernets:
+    ens37:
+      dhcp4: yes
+  version: 2
+  renderer: networkd
 
-`    ens37:`
-
-`      dhcp4: yes`
-
-`  version: 2`
-
-`  renderer: networkd`
+```
 
 <br>
   
@@ -151,6 +173,10 @@ $ source ~/.bashrc
 
 <br>
 
-`$ sudo netplan apply`
+``` shell
+
+$ sudo netplan apply
+
+```
 
 <br>
