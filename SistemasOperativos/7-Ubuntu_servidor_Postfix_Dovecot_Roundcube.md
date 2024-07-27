@@ -388,7 +388,7 @@ $ sudo systemctl restart apache2 postfix dovecot
 
 ```shell
 
-$ sudo ufw allow 22`
+$ sudo ufw allow 22
 
 $ sudo ufw allow 80
 
