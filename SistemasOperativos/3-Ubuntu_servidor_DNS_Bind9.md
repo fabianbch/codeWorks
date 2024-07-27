@@ -3,7 +3,7 @@
 
 <br>
 
-1. Instalación del servidor Bind9:
+1. Instalación del servidor DNS Bind9:
 
 <br>
 
