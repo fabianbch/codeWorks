@@ -238,7 +238,7 @@ $ sudo systemctl enable dovecot
 
 ```shell
 
-$ sudo nano /etc/bind/db.so2.local`
+$ sudo nano /etc/bind/db.so2.local
 
 mail    IN      A       192.168.5.10
 @       IN      MX  10  mail.so2.local.
