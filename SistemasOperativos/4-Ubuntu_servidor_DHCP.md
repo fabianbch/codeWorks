@@ -93,7 +93,7 @@ $ sudo systemctl enable isc-dhcp-server
 
 <br>
 
-6. Reinicio del servicio DHCP para aplicar los cambios:
+6. Reinicio del servidor DHCP para aplicar los cambios:
 
 <br>
 
