@@ -33,7 +33,7 @@ $ source ~/.bashrc
 
 $ hostname
 
-$ sudo hostnamectl set-hostname srvmaster.so2.local
+$ sudo hostnamectl set-hostname master.so2.local
 
 ```
 
