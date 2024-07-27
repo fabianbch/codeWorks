@@ -1,9 +1,9 @@
-# Implementación de servidores de transferencia de archivos VSFTP en Ubuntu Server 24.04
+# Implementación de servidores de transferencia de archivos SFTP en Ubuntu Server 24.04
 **by [gWorks Cloud Solutions](https://www.gworks-ec.com)**
 
 <br>
 
-1. Instalación del servidor FTP (vsftpd):
+1. Instalación del servidor SFTP (vsftpd):
 
 <br>
 
@@ -15,7 +15,7 @@ $ sudo apt install vsftpd
 
 <br>
 
-2. Edición del archivo de configuración del servidor vsftpd:
+2. Edición del archivo de configuración del servidor SFTP:
 
 <br>
 
@@ -66,7 +66,7 @@ $ sudo chown -R usuario1:usuario1 /home/usuario1/ftp
 
 <br>
 
-4. Ejecución automática del servidor FTP (vsftpd):
+4. Ejecución automática del servidor SFTP (vsftpd):
 
 <br>
 
@@ -78,7 +78,7 @@ $ sudo systemctl enable vsftpd
 
 <br>
 
-5. Reinicio del servidor FTP (vsftpd) par aplicar los cambios:
+5. Reinicio del servidor SFTP (vsftpd) par aplicar los cambios:
 
 <br>
 
