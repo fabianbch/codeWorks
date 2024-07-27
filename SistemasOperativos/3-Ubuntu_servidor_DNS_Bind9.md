@@ -137,7 +137,7 @@ $TTL    604800
 
 <br>
 
-8. Configuración de opciones del servidor Bind9:
+8. Configuración de opciones del servidor DNS Bind9:
 
 <br>
 
@@ -164,7 +164,7 @@ options {
 
 <br>
 
-10. Modificación del archivo **named**:
+10. Modificación del archivo **/etc/default/named**:
 
 <br>
 
@@ -188,7 +188,7 @@ OPTIONS="-4 -u bind"
 
 <br>
 
-12. Reinicio sel servidor Bind9 para aplicar los cambios:
+12. Reinicio sel servidor DNS Bind9 para aplicar los cambios:
 
 <br>
 
@@ -202,7 +202,7 @@ $ sudo systemctl status bind9
 
 <br>
 
-13. Comprobación de la configuración de Bind 9:
+13. Comprobación de la configuración del servidor DNS Bind 9:
 
 <br>
 
