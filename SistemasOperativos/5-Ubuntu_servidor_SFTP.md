@@ -15,7 +15,7 @@ $ sudo apt install vsftpd
 
 <br>
 
-2. Edición del archivo de configuración del servidor SFTP:
+2. Edición del archivo de configuración del servidor SFTP (vsftpd):
 
 <br>
 
