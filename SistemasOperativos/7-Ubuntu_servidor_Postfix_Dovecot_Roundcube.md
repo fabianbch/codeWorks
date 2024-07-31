@@ -104,10 +104,10 @@ $ sudo rm -rf /etc/postfix /etc/dovecot
 
 $ sudo apt install postfix
 
-OPCIÓN 2: Internet Site.
-- Digite su `System mail name: so2.local
-
 ```
+
+OPCIÓN 2: Internet Site.
+- Digite su `System mail name: so2.local`
 
 <br>
 
