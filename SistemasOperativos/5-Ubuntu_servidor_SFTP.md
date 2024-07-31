@@ -42,7 +42,7 @@ chroot_local_user=YES
 user_sub_token=$USER
 local_root=/home/$USER/ftp
 pasv_min_port=10000
-pasv_max_port=10100`
+pasv_max_port=10100
 
 ```
 
