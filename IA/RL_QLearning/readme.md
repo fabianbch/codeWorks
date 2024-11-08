@@ -20,4 +20,4 @@ El programa basado en Algoritmos de aprendizaje por refuerzo (RL) Q-Learning pro
 
 Q-learning es una técnica de aprendizaje por refuerzo que tiene como objetivo aprender una estrategia que le diga a un agente qué acción tomar bajo qué circunstancias.
 
-![image](https://github.com/user-attachments/assets/70cdbe24-c7a9-4356-90bd-e794f1358956)
+![image](https://github.com/user-attachments/assets/e7214074-fdb1-488d-b51c-06093ba298a3)
