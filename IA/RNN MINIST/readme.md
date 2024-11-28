@@ -12,5 +12,4 @@ El desarrollo de este proyesto permite conocer el uso de redes neuronales simple
 
 Este ejercicio mejora la capacidad de identificar patrones en datos visuales, fomenta un pensamiento lógico para resolver problemas y ofrece una experiencia fundamental en el aprendizaje de máquina (Machine Learning).
 
-MNIST-0000000001-2e09631a_09liOmx.jpg
-
+![Untitled](https://github.com/user-attachments/assets/654ab846-1e7e-487e-976a-b8532e84346a)
