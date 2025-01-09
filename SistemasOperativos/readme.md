@@ -1,4 +1,5 @@
-**Instalación de Ubuntu Linux**
+# Instalación de un servidor Ubuntu 24.04
+**by [gWorks Cloud Solutions](https://www.gworks-ec.com)**
 
 Descargue Ubuntu 24.04 LTS (lanzado el 25 de abril de 2024, compatible hasta finales de abril de 2034).
 
