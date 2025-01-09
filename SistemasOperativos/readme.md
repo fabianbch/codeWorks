@@ -20,5 +20,7 @@ Canonical hace las siguientes recomendaciones mínimas:
 - Disponer de acceso a Internet durante el proceso de instalación.
 
 https://ubuntu.com/download/server
+
 https://cdimage.ubuntu.com/releases/24.04/release
+
 https://ubuntu.com/about/release-cycle   
