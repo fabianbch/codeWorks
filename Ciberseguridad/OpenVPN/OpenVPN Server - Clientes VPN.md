@@ -2,9 +2,9 @@
 
 1. Instalar servidor OpenVPN
 
-wget -O install-openvpn-server.sh <URL_DEL_SCRIPT>
+'wget -O install-openvpn-server.sh <URL_DEL_SCRIPT>
 chmod +x install-openvpn-server.sh
-sudo ./install-openvpn-server.sh
+sudo ./install-openvpn-server.sh'
 
 3. Crear usuarios VPN
 
