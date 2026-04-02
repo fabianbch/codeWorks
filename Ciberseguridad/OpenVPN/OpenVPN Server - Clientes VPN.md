@@ -21,7 +21,6 @@ systemctl status openvpn-server@server.service
 ```
 
 
-
 # EN KALI LINUX (Cliente)
 
 1. Descargar configuración
