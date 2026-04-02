@@ -38,4 +38,13 @@ sudo openvpn --config ~/vpn-configs/vpn1.ovpn --daemon
 ```
 ip addr show tun0
 curl ifconfig.me
+ping -c 3 10.8.0.1
+ip route show | grep -E "(default|10.8.0)"
+```
+
+5: Desconectar VPN
+```
+sudo pkill openvpn
+sudo ip link delete tun0 2>/dev/null
+ip addr show tun0
 ```
