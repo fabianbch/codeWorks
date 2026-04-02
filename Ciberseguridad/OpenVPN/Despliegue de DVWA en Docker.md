@@ -1,6 +1,6 @@
 # Despliegue de DVWA en Docker
 
-1: Instalar Docker en Ubuntu
+1. Instalar Docker en Ubuntu
 
 Actualizar sistema
 ```
@@ -30,7 +30,7 @@ docker-compose --version
 ```
 
 
-Paso 2: Crear Directorio para DVWA
+2. Crear el Directorio para DVWA
 
 Crear directorio
 ```
@@ -88,7 +88,7 @@ networks:
     driver: bridge
 ```
 
-Paso 4: Iniciar DVWA
+4. Iniciar la aplicación DVWA
 
 Desde el directorio ~/dvwa
 ```
@@ -110,25 +110,26 @@ Ver logs
 docker-compose logs -f
 ```
 
-Paso 5: Configurar DVWA (Primera Vez)
+5. Configurar la aplicación DVWA por primera vez
 
 Abrir navegador (Firefox/Chrome en Kali)
 ```
-http://SERVER_IP
+http://SERVER_IP o http://SERVER_IP_VPN
 ````
 
 Hacer clic en "Create / Reset Database"
 
-
 Esperar a que se cree la base de datos
 
-
 Login con credenciales por defecto:
-Usuario: `admin`
-Contraseña: `password`
-
+```
+Usuario: admin
+Contraseña: password
+```
 
 Cambiar nivel de seguridad (esquina superior derecha):
-Ir a: `DVWA Security`
-Seleccionar: `Low, Medium, o High`
-Click: `Submit`
+```
+Ir a: DVWA Security
+Seleccionar: Low, Medium, o High
+Click: Submit
+```
