@@ -97,17 +97,17 @@ cd ~/dvwa
 
 Iniciar contenedores
 ```
-docker-compose up -d
+sudo docker-compose up -d
 ```
 
 Ver estado
 ```
-docker-compose ps
+sudo docker-compose ps
 ```
 
 Ver logs
 ```
-docker-compose logs -f
+sudo docker-compose logs -f
 ```
 
 4. Configurar la aplicación DVWA por primera vez
