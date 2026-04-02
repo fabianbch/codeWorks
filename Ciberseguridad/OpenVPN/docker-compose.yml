@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  dvwa:
+    image: vulnerables/web-dvwa:latest
+    container_name: dvwa
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - DBMS=mysql
+      - MYSQL_HOST=db
+      - MYSQL_USER=dvwa
+      - MYSQL_PASSWORD=p@ssw0rd
+      - MYSQL_DATABASE=dvwa
+    depends_on:
+      - db
+    networks:
+      - dvwa-network
+
+  db:
+    image: mysql:5.7
+    container_name: dvwa-db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=p@ssw0rd
+      - MYSQL_DATABASE=dvwa
+      - MYSQL_USER=dvwa
+      - MYSQL_PASSWORD=p@ssw0rd
+    volumes:
+      - dvwa-db-data:/var/lib/mysql
+    networks:
+      - dvwa-network
+
+volumes:
+  dvwa-db-
+
+networks:
+  dvwa-network:
+    driver: bridge
