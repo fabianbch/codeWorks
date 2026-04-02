@@ -88,7 +88,7 @@ networks:
     driver: bridge
 ```
 
-4. Iniciar la aplicación DVWA
+3. Iniciar la aplicación DVWA
 
 Desde el directorio ~/dvwa
 ```
@@ -110,7 +110,7 @@ Ver logs
 docker-compose logs -f
 ```
 
-5. Configurar la aplicación DVWA por primera vez
+4. Configurar la aplicación DVWA por primera vez
 
 Abrir navegador (Firefox/Chrome en Kali)
 ```
