@@ -1,7 +1,6 @@
-#Despliegue de DVWA en Docker
+# Despliegue de DVWA en Docker
 
-
-Paso 1: Instalar Docker en Ubuntu
+1: Instalar Docker en Ubuntu
 
 Actualizar sistema
 ```
