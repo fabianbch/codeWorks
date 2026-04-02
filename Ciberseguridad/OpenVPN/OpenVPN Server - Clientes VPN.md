@@ -2,14 +2,14 @@
 
 1. Instalar servidor OpenVPN
 ```
-wget -O install-openvpn-server.sh [<URL_DEL_SCRIPT>](https://github.com/fabianbch/codeWorks/blob/main/Ciberseguridad/OpenVPN/install-openvpn-server.sh)
+wget -O install-openvpn-server.sh https://github.com/fabianbch/codeWorks/blob/main/Ciberseguridad/OpenVPN/install-openvpn-server.sh
 chmod +x install-openvpn-server.sh
 sudo ./install-openvpn-server.sh
 ```
 
 3. Crear usuarios VPN
 ```
-wget -O create-vpn-users.sh [<URL_DEL_SCRIPT>](https://github.com/fabianbch/codeWorks/blob/main/Ciberseguridad/OpenVPN/create-vpn-users.sh)
+wget -O create-vpn-users.sh https://github.com/fabianbch/codeWorks/blob/main/Ciberseguridad/OpenVPN/create-vpn-users.sh
 chmod +x create-vpn-users.sh
 sudo ./create-vpn-users.sh
 ```
