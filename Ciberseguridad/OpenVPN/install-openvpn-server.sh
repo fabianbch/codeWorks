@@ -1,15 +1,31 @@
 #!/bin/bash
 set -e
-IP=$(hostname -I | awk '{print $1}'); INT=$(ip -o link | awk -F': ' '!/lo/ {print $2}' | cut -d@ -f1 | head -1)
-apt update -qq && apt install -y openvpn easy-rsa ufw >/dev/null 2>&1
+
+# Variables
+IP=$(hostname -I | awk '{print $1}')
+INT=$(ip -o link | awk -F': ' '!/lo/ {print $2}' | cut -d@ -f1 | head -1)
+
+# Instalar paquetes
+apt update -qq
+apt install -y openvpn easy-rsa ufw
+
+# Directorios
 mkdir -p /etc/openvpn/server/easy-rsa /var/log/openvpn
+
+# Copiar Easy-RSA
 cp -r /usr/share/easy-rsa/* /etc/openvpn/server/easy-rsa/
-cd /etc/openvpn/server/easy-rsa && ./easyrsa init-pki >/dev/null 2>&1
-echo "CA" | ./easyrsa build-ca nopass >/dev/null 2>&1
-echo "server" | ./easyrsa gen-req server nopass >/dev/null 2>&1
-echo "yes" | ./easyrsa sign-req server server >/dev/null 2>&1
-./easyrsa gen-dh >/dev/null 2>&1 && openvpn --genkey --secret pki/ta.key >/dev/null 2>&1
-cat > /etc/openvpn/server/server.conf << EOF
+cd /etc/openvpn/server/easy-rsa
+
+# Generar PKI
+./easyrsa init-pki
+echo "CA" | ./easyrsa build-ca nopass
+echo "server" | ./easyrsa gen-req server nopass
+echo "yes" | ./easyrsa sign-req server server
+./easyrsa gen-dh
+openvpn --genkey --secret pki/ta.key
+
+# Configuración del servidor
+cat > /etc/openvpn/server/server.conf << 'ENDCONF'
 port 1194
 proto udp
 dev tun
@@ -34,15 +50,26 @@ status /var/log/openvpn/status.log
 log /var/log/openvpn/openvpn.log
 verb 3
 key-direction 0
-EOF
-echo "net.ipv4.ip_forward=1" > /etc/sysctl.d/99-openvpn.conf && sysctl -p >/dev/null 2>&1
-ufw --force reset >/dev/null 2>&1 && ufw allow 22/tcp && ufw allow 1194/udp && ufw --force enable >/dev/null 2>&1
-cat >> /etc/ufw/before.rules << NAT
-*nat
-:POSTROUTING ACCEPT [0:0]
--A POSTROUTING -s 10.8.0.0/24 -o $INT -j MASQUERADE
-COMMIT
-NAT
-systemctl daemon-reload && systemctl enable --now openvpn-server@server.service >/dev/null 2>&1
-sleep 2; pgrep openvpn >/dev/null || openvpn --daemon --config /etc/openvpn/server/server.conf
-echo "[OK] OpenVPN Server activo en $IP:1194"
+ENDCONF
+
+# Habilitar IP Forwarding
+echo "net.ipv4.ip_forward=1" > /etc/sysctl.d/99-openvpn.conf
+sysctl -p /etc/sysctl.d/99-openvpn.conf
+
+# Configurar UFW
+ufw --force reset
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow 22/tcp
+ufw allow 1194/udp
+ufw --force enable
+
+# Configurar NAT
+echo "" >> /etc/ufw/before.rules
+echo "*nat" >> /etc/ufw/before.rules
+echo ":POSTROUTING ACCEPT [0:0]" >> /etc/ufw/before.rules
+echo "-A POSTROUTING -s 10.8.0.0/24 -o $INT -j MASQUERADE" >> /etc/ufw/before.rules
+echo "COMMIT" >> /etc/ufw/before.rules
+
+# Iniciar servicio
+systemctl daemon-reload
