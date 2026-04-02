@@ -1,16 +1,17 @@
 # EN UBUNTU SERVER (Servidor)
 
 1. Instalar servidor OpenVPN
+Code[
 wget -O install-openvpn-server.sh <URL_DEL_SCRIPT>
 chmod +x install-openvpn-server.sh
-sudo ./install-openvpn-server.sh
+sudo ./install-openvpn-server.sh]
 
-2. Crear usuarios VPN
+3. Crear usuarios VPN
 wget -O create-vpn-users.sh <URL_DEL_SCRIPT>
 chmod +x create-vpn-users.sh
 sudo ./create-vpn-users.sh
 
-3. Verificar
+4. Verificar
 ls -lh /root/vpn-clients/
 systemctl status openvpn-server@server.service
 
