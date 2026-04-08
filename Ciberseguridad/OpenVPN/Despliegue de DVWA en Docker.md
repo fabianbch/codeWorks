@@ -81,7 +81,7 @@ services:
       - dvwa-network
 
 volumes:
-  dvwa-db-
+  dvwa-db-data:
 
 networks:
   dvwa-network:
