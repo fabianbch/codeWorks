@@ -1,0 +1,131 @@
+Received: from LV3PR15MB6433.namprd15.prod.outlook.com (::1) by
+ CO1PR15MB4940.namprd15.prod.outlook.com with HTTPS; Tue, 22 Apr 2025 18:18:54
+ +0000
+Received: from CWLP265CA0496.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:18b::17)
+ by LV3PR15MB6433.namprd15.prod.outlook.com (2603:10b6:408:1a9::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Tue, 22 Apr
+ 2025 18:18:52 +0000
+Received: from AM2PEPF0001C70C.eurprd05.prod.outlook.com
+ (2603:10a6:400:18b:cafe::6e) by CWLP265CA0496.outlook.office365.com
+ (2603:10a6:400:18b::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.34 via Frontend Transport; Tue,
+ 22 Apr 2025 18:18:51 +0000
+Authentication-Results: spf=softfail (sender IP is 114.29.236.247)
+ smtp.mailfrom=primax.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine
+ header.from=primax.com;compauth=fail reason=000
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ primax.com discourages use of 114.29.236.247 as permitted sender)
+Received: from emkei.cz (114.29.236.247) by
+ AM2PEPF0001C70C.mail.protection.outlook.com (10.167.16.200) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.12
+ via Frontend Transport; Tue, 22 Apr 2025 18:18:50 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:7EB1EED7AA30FB6E9CA180165FE77A81663AF0C5504B6F10E50A43F43F8BC63D;UpperCasedChecksum:834087529FE4AF9D6C17472FF77132C5608420473BEDCE1F5C03C7F34CBA172C;SizeAsReceived:452;Count:11
+Received: by emkei.cz (Postfix, from userid 33)
+	id E192619E2; Tue, 22 Apr 2025 20:18:48 +0200 (CEST)
+To: <empresa01HM@hotmail.com>
+Subject: Clase06
+From: "Danilo Perez" <daniel.perez@primax.com>
+Errors-To: daniel.perez@primax.com
+Reply-To: daniel.perez@primax.com
+Content-Type: text/plain; charset="utf-8"
+Message-ID: <20250422181848.E192619E2@emkei.cz>
+Date: Tue, 22 Apr 2025 20:18:48 +0200
+X-IncomingHeaderCount: 11
+Return-Path: daniel.perez@primax.com
+X-MS-Exchange-Organization-ExpirationStartTime: 22 Apr 2025 18:18:51.5304
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: f553ab0d-a117-44bb-a983-08dd81ca224c
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM2PEPF0001C70C:EE_|LV3PR15MB6433:EE_|CO1PR15MB4940:EE_
+X-MS-Exchange-Organization-AuthSource: AM2PEPF0001C70C.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 4/22/2025 6:12:49 PM
+X-MS-Office365-Filtering-Correlation-Id: f553ab0d-a117-44bb-a983-08dd81ca224c
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 114.29.236.247
+X-SID-PRA: DANIEL.PEREZ@PRIMAX.COM
+X-SID-Result: FAIL
+X-MS-Exchange-Organization-SCL: 7
+X-Microsoft-Antispam: BCL:0;ARA:1444111002|2700799026|461199028|970799057|47200799021|58200799018|13020799006|16110799025|440099028|3412199025|6022199012|16125499006|1380799030|1360799030|1370799030;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Apr 2025 18:18:50.9992
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f553ab0d-a117-44bb-a983-08dd81ca224c
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C70C.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR15MB6433
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.7161854
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8655.031
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;psp:0;auth:0;dest:J;OFR:SpamFilterAuthJ;ENG:(5062000308)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001181)(2008121020)(4810010)(4910033)(9610028)(9525003)(10145025)(9320005)(9245025)(120001);RF:JunkEmail;
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MjtHRD0xO1NDTD02
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?MDE4QlAzV3dtYXJRRU1hZGZGRnBjU1hadmJrOStncWRrTlMwNjlTZm5TMnFp?=
+ =?utf-8?B?ZGw0dWZoN2svMHdpZXphaDBLRDU2VTc1Q1FVa2Q3RVRBUGk5RVpwVHphZU1H?=
+ =?utf-8?B?anptc0lvZ0tLYXF4aHMvdlR6RmxyLzIxS1pzeDB2TXFFaHNLemtNTWVoOEZI?=
+ =?utf-8?B?OGZGNGRXOU1pUnYvMlVsbTVhb3MxOU9sM1pWNUN1d0hDTzRpSGZnWkNjam43?=
+ =?utf-8?B?eFo1ckI5VHRHaUpBN2FQY3ZFVTF3T2l1dW4wTnMzUVp6TUJlQ3M1TnRWZjha?=
+ =?utf-8?B?ZjlVbkQ2UW4rQ2tBVGt4M3p1SkxHVmJSOHA5TURDdFdQSDZ2clRCTDEzNkFX?=
+ =?utf-8?B?dGQ0dndwMC8yeEMxSWRiM2RXQVljNEg4bFNnQStJeC9IYTN4ZUdVK2xDV1lJ?=
+ =?utf-8?B?cGRZcUFlL2NuVzNvdlpDY3ZXRi85MTl6WTNNMnhENFFZME9hWnMzUk1jbHpG?=
+ =?utf-8?B?R2ZubDM5R1RxbEFlVmt4K0JpUTVRWTJUVU4yaUt5Rm9TcDVRNHBIWVhoYjZn?=
+ =?utf-8?B?ZlNWbjgrNElrbjdwMnQ1bVpHcU9XQWo4ZW5naGxnNUxwU1VvMkFuRjRZMnRM?=
+ =?utf-8?B?S0VMTUJtM09sSE84K1NoZmpQamNKMTlFY0hmNHI2OXBNOEJtUE03bmxSTGxN?=
+ =?utf-8?B?b2VMUXdYWGhwQ25jT1VIZ05mamlEQ3Z0ZXg0QnFVTWZ1V3NIU2lLYitUUkJE?=
+ =?utf-8?B?dTBpdk85MHViTmdPekdsNDYvU1VLdG5IVUJjMG80M3BOaEJQVWNzSnE3bmNB?=
+ =?utf-8?B?Y3Z4WjBiMDRzOXFhQ1NNbXhRMjlBZ0dwRE5ZZzJjNkppdFIySmJqWVZrbDBl?=
+ =?utf-8?B?UkZzV0ZHc1o2VkltN0ZpZHZqYVVhNkNPY1F6dWhzeURCWCtCUlBrckluWDJZ?=
+ =?utf-8?B?N2k4SGgwMndNVGYrd0R2Q0o0UmgxeW52TXdEZWx3UE1ONnV3K0MrMkR0WmNv?=
+ =?utf-8?B?K3V2QStLeitVRDFMZ1hmTEs4WFV3aWFxQVQzK25hZDdNUUhCenc1cHVJRzlT?=
+ =?utf-8?B?TWdEUVh6Z0ZQUmVkTE1hNDJONkVPUHNMajIxQW1YVE1vcEh4cHV2RDNiZU1m?=
+ =?utf-8?B?VFczZktBL3J0enJHUDhqbVdLOS93RG1UY3BFTkdLWXdYcmY3QncyMmZNVHA3?=
+ =?utf-8?B?VlVzNnE1NEdsT0VvQUxMNGR1c2c5MVBaMk1SU3BuUjdQRUtiZFVsUFNOQ0la?=
+ =?utf-8?B?NU5iWnZ5QnlpZlYzWFJuam14aEp0MWFsay9CT3pEdlBLbFpOdm9Lak85aUFz?=
+ =?utf-8?B?b29tMU85RVFvRC93VGV5YXU1V2QwODZpRGpTTThBWldjdkFBVjY1b01WazFk?=
+ =?utf-8?B?Zm0wKytPVnM0Vi9OS202aTVXUFJQL09Kdlo2VWJwNDNWOWlCb2l6dXZzelpr?=
+ =?utf-8?B?UHEvWWFLbWpQejEydjNWUkNZVWw4NnJybnpsbGttZVJnUll6SXJ1TUdLUFpa?=
+ =?utf-8?B?WFQrNUcvd29JTnJGUm12Sml2Y3lSalV1djdnTEN3NnUvbExMTHU0VTdhTjI3?=
+ =?utf-8?B?dHRuRjF0bVd6amU2TXFHUjlwWXQ4OHl1Q0lNUFdIWkhLY3lKSzBWa0Y3VThG?=
+ =?utf-8?B?RU5XTnBtRlNPbS9tUWpYTTZqVWtWK3N3cGJ4MWxjR2RZU2Ntb1h2elhxK2Rh?=
+ =?utf-8?B?WVhWUkI1SFJ1TnA2NjJXRGl0TEFyWTg0a29la3lRWHBQbDZQNlNvOVVBTGhW?=
+ =?utf-8?B?c0t4cmRkY09neXdWWFRPdEd1bWpYamhrVlQ5RHNUQVVYQjI4eGgvV1lDNGVK?=
+ =?utf-8?B?ZHJCcHJlYWpJUlVGNWU4NGo2dVZoVjdwUWRCUDNEcjlZVTNaZXNtTi9WZmw4?=
+ =?utf-8?B?SFZTK2Z4UnV3M05YV3BjY29LdCtNVjdsd0tjMlFZMDhnK1BpWGY4czd3U0dO?=
+ =?utf-8?B?UVgwa1QxaUxXMlZLdzJ0L1E4L2V3dVFDYkZIQmNaK0U1NXdVeFFrM0RIaGdm?=
+ =?utf-8?B?NWhzSzBlckRRMTBEMVNhaUpWMHVoTWk2RmFvTWNBWFVHUEhoM2szdkVLWlVW?=
+ =?utf-8?B?SFgzTURFWWlyVXlmQjJQaTJTSkoySDV2ZjY2L2ExenBMS2ZSQ2dmQ2ZmN1pr?=
+ =?utf-8?B?bWtQRmZsSUZtMGtRcENIU295WGE1RzZGelZIb1hMRHQrbjFqNVZSQkNIazNv?=
+ =?utf-8?B?bExJQXMrbzhiN0NHQS8wa21pR2k1ZzZ2TDRMZ1lhY2gwdGdaZ2g0dHlYN21Z?=
+ =?utf-8?B?aTlDVXY2OWxaaytKK1QxNE12bk5mT01UTysyUXg0UGxKM3c1K2JZVlFuVzY0?=
+ =?utf-8?B?cGhCdGo4amhRSkxrSElqZEpzd1BES0dRZHJMenZQVW0rdENkakFNOWVkdHpk?=
+ =?utf-8?B?U0tRbnJHRVptckNGdjZ2cTg5UlJNUGpScENKUjg1cmtWbEFkZ0tnVjQyaWc0?=
+ =?utf-8?B?T1pucmRRSHdEVVQ4RmF2eHA0MGJrWU8rZ2kyM01MK09xcldxSWZhWExMNEhC?=
+ =?utf-8?B?ZGFHK2FpUVkrS2JIcTVkSUFrQ0h6eS96SlQydXlPMGRpWkVhM0FXZDZzKzR0?=
+ =?utf-8?B?alZ6RlE4WkswY1dBcEtCZG1IK052NXRlRnVHQmpvb1dLcWVTWGxyZEVYYUg4?=
+ =?utf-8?B?Z01VOWhqT0lhcUtCRTFTNlJ6ZW9hSkVNNlhqOXVra3YySUJHcWRXM2FkYXJM?=
+ =?utf-8?B?Tk1BTElBUVBYcWwrZzN6MncxQ2liT2ZPL3FXdFM0VGcwU1J0bVd4MHdoUXJG?=
+ =?utf-8?B?cWF6Uis4ZS9pV2owcms3emYzZlBLbndEU2JPVmVXdHdlbTZpSWozU1NVeWZ2?=
+ =?utf-8?B?dXRjdWZxcXJrMzFGMzNsdGZ2Vi9aK0h0c21xMFYxUkpaZUd1QXJPQm5KYm95?=
+ =?utf-8?B?ajl1K01hc0Z0TVNsc3lTU0tGa1pTZFEzTG9pWVpwcDVMS2xyRTRuaWNWbnhm?=
+ =?utf-8?B?ZmNKS3Z3ZFo2K1FHbHdldGhXYS9LNDROaUJXdnlZamxtcEdnQ3BZQmhIejg5?=
+ =?utf-8?B?Q2ZxaGNVUjRGbm9iV0RRbDBwS0Q4WXlPRkdTOEZlVnhnN2VsNDVSTk5OZVYy?=
+ =?utf-8?B?UmpmYXFBUjRTN082QUM0dFpSL3JmSEpLbVBTYURvKzNBNkdJTUU2SGNpVkV2?=
+ =?utf-8?B?bG0xSmY2Y2tGSXFvaHhwWnMwUkZYU3RjcHo1blM1ZmF4UmZiYVgvZzExb0tv?=
+ =?utf-8?B?WDNnbElhN3RNdndKRjhzT0VEb3RSWDJsYXhqdEI0Y0VuOHBVenlCMnl6QS8w?=
+ =?utf-8?B?c29BOXpQZG1WK3JhcWFSU1dvVHZDZmpaNmtMTGpMU2hTcGdoRUNTVDVmZk5K?=
+ =?utf-8?B?NE9XNEE9PQ==?=
+MIME-Version: 1.0
+
+Estimados, buenos dias
+
+Mucha suerte en el Reto Forense!!

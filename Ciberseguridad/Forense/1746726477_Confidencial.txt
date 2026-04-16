@@ -1,0 +1,66 @@
+package main
+
+import (
+	"fmt"
+	"html/template"
+	"log"
+	"net/http"
+)
+
+// Datos que se pasarán a la plantilla HTML
+type PageData struct {
+	Title string
+	Body  string
+}
+
+// Handler principal para la ruta "/"
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.New("home").Parse(`
+		<!DOCTYPE html>
+		<html lang="es">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>{{.Title}}</title>
+			<link rel="stylesheet" href="/static/style.css">
+		</head>
+		<body>
+			<header>
+				<h1>{{.Title}}</h1>
+			</header>
+			<main>
+				<p>{{.Body}}</p>
+			</main>
+			<footer>
+				<small>© 2025 RecoveryDat. Todos los derechos reservados.</small>
+			</footer>
+		</body>
+		</html>
+	`))
+
+	data := PageData{
+		Title: "RecoveryDat - Recuperación y Análisis Forense de Datos",
+		Body:  "Somos expertos en recuperación de datos, análisis forense digital y preservación de evidencia electrónica.",
+	}
+
+	err := tmpl.Execute(w, data)
+	if err != nil {
+		http.Error(w, "Error al renderizar la página", http.StatusInternalServerError)
+	}
+}
+
+func main() {
+	// Ruta principal
+	http.HandleFunc("/", homeHandler)
+
+	// Servir archivos estáticos (CSS, imágenes, JS)
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	// Iniciar servidor
+	fmt.Println("Servidor corriendo en http://localhost:8080")
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal("Error al iniciar el servidor: ", err)
+	}
+}

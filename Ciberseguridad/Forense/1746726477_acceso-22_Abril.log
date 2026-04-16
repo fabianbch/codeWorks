@@ -1,0 +1,7 @@
+83.46.237.21 - - [22/Apr/2025:22:02:16 +02:00] "GET /login.php HTTP/1.1" 200 321 "-" "Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0"
+83.46.237.21 - - [22/Apr/2025:22:02:18 +02:00] "GET /login.php HTTP/1.1" 200 321 "-" "Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0"
+83.46.237.21 - - [22/Apr/2025:22:02:21 +02:00] "GET /login.php HTTP/1.1" 200 321 "-" "Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0"
+83.46.237.21 - - [22/Apr/2025:22:08:22 +02:00] "GET /muestra_registro.php?cliente=aaa&registro=1 HTTP/1.1" 200 392 "-" "Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0"
+83.46.237.21 - - [22/Apr/2025:22:09:12 +02:00] "GET /muestra_registro.php?cliente=aaa&registro=2 HTTP/1.1" 200 392 "-" "Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0"
+83.46.237.21 - - [22/Apr/2025:22:09:44 +02:00] "GET /muestra_registro.php?cliente=aaa&registro=3 HTTP/1.1" 200 392 "-" "Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0"
+83.46.237.21 - - [22/Apr/2025:22:13:27 +02:00] "GET /muestra_registro.php?cliente=aaa&registro=1 HTTP/1.1" 200 392 "-" "Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0"
