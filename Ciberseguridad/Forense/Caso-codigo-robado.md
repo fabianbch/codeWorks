@@ -5,16 +5,22 @@
 El equipo legal apunta a Martín, pero todo es circunstancial... hasta que en una inspección de urgencia se localiza un dispositivo USB olvidado conectado en su antiguo escritorio. El USB fue entregado para análisis forense, junto con registros del servidor y un misterioso correo recibido por un empleado.
 
 🧠 Tu misión:
-Ponte en la piel de un analista forense digital. Analiza la evidencia proporcionada. Cada pista te acerca a descubrir:
+Analiza la evidencia proporcionada, cada pista te acerca a descubrir:
 
 ```
-    ¿Qué ocurrió realmente tras el retiro de Martín?
+1. ¿Cuántos archivos fueron eliminados del USB?
 
-    ¿Se robó el código?
+2.  ¿Se robó el código? ¿Hay alguna evidencia de que se tomó una foto del código?
 
-    ¿Desde dónde se accedió al servidor?
+3. ¿Se puede determinar si el señor Martín Velasco se ha sustraído el código?
 
-    ¿Es auténtico ese correo sospechoso?
+4. ¿Cuál es la ciudad de origen de la dirección IP identificada en la captura de logs?
 
-    ¿Cuáles son las implicaciones legales si logras confirmar la exfiltración?
+5. ¿Qué navegador se utilizó para acceder al servidor?
+
+6. ¿A qué hora se registró el último acceso o petición hacia el servidor?
+
+7. ¿Desde qué dirección IP fue enviado el correo electrónico?
+
+8. ¿Es un correo válido o se trata de una suplantación?
 ```
